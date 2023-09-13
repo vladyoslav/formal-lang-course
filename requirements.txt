@@ -3,6 +3,7 @@ black
 cfpq-data
 flake8
 isort
+networkx
 pre-commit
 pydot
 pytest
