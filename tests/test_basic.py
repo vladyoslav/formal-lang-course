@@ -1,5 +1,5 @@
-import pytest
-import project  # on import will print something from __init__ file
+# import project  # on import will print something from __init__ file
+# import pytest
 
 
 def setup_module(module):
