@@ -20,9 +20,9 @@ def test_get_graph_info():
 
 
 def test_make_labeled_two_cycles_graph():
-    path = "tests/graphs/task1.dot"
-    expected = "tests/graphs/expected_task1.dot"
+    path = "./tests/graphs/task1.dot"
+    expected = "./tests/graphs/expected_task1.dot"
 
     gl.make_labeled_two_cycles_graph(3, 5, ("a", "b"), path)
 
-    assert filecmp.cmp(path, expected)
+    assert filecmp.cmp(path, expected, shallow=False)
