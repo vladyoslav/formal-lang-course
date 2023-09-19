@@ -6,5 +6,6 @@ isort
 networkx
 pre-commit
 pydot
+pyformlang
 pytest
 scipy
