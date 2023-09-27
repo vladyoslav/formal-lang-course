@@ -2,10 +2,9 @@ from collections import defaultdict
 
 from pyformlang.finite_automaton import FiniteAutomaton, NondeterministicFiniteAutomaton
 from scipy import sparse
-from scipy.sparse import csr_matrix
 
 
-def fa_bool_decompose(fa: FiniteAutomaton) -> defaultdict[str, csr_matrix]:
+def fa_bool_decompose(fa: FiniteAutomaton) -> defaultdict[str, sparse.spmatrix]:
     graph = fa.to_networkx()
     states_number = len(fa.states)
 
