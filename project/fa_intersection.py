@@ -4,7 +4,7 @@ from pyformlang.finite_automaton import FiniteAutomaton, NondeterministicFiniteA
 from scipy import sparse
 
 
-def fa_bool_decompose(fa: FiniteAutomaton) -> defaultdict[str, sparse.spmatrix]:
+def bool_decompose(fa: FiniteAutomaton) -> defaultdict[str, sparse.spmatrix]:
     graph = fa.to_networkx()
     states_number = len(fa.states)
 
@@ -25,11 +25,9 @@ def fa_bool_decompose(fa: FiniteAutomaton) -> defaultdict[str, sparse.spmatrix]:
     return matrices
 
 
-def intersect_fa(
-    first_fa: FiniteAutomaton, second_fa: FiniteAutomaton
-) -> FiniteAutomaton:
-    first_matrices = fa_bool_decompose(first_fa)
-    second_matrices = fa_bool_decompose(second_fa)
+def intersect(first_fa: FiniteAutomaton, second_fa: FiniteAutomaton) -> FiniteAutomaton:
+    first_matrices = bool_decompose(first_fa)
+    second_matrices = bool_decompose(second_fa)
 
     labels = first_matrices.keys() & second_matrices.keys()
     matrices = {

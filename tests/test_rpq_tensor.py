@@ -1,4 +1,4 @@
-import project.rpq_lib as rpql
+from project.rpq_tensor import rpq_tensor
 from pyformlang.finite_automaton import DeterministicFiniteAutomaton
 
 
@@ -15,7 +15,7 @@ def test_regular_path_query():
 
     regex = "b(a+n)*a"
 
-    result = rpql.regular_path_query(graph, regex, [0], [2, 3])
-    expected = [(0, 2)]
+    result = rpq_tensor(graph, regex, [0], [2, 3])
+    expected = {(0, 2)}
 
     assert result == expected
