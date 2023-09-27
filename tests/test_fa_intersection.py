@@ -1,4 +1,4 @@
-import project.fa_intersection as fa_intersection
+from project.fa_intersection import bool_decompose, intersect
 from pyformlang.finite_automaton import (
     DeterministicFiniteAutomaton,
     NondeterministicFiniteAutomaton,
@@ -13,7 +13,7 @@ def test_fa_bool_decompose():
     dfa.add_transition(1, "c", 1)
     dfa.add_transition(1, "b", 0)
 
-    matrices = fa_intersection.bool_decompose(dfa)
+    matrices = bool_decompose(dfa)
 
     exp = {
         "a": [[1, 0], [0, 0]],
@@ -59,4 +59,4 @@ def test_intersect_fa():
     exp.add_start_state(0)
     exp.add_final_state(3)
 
-    assert exp.is_equivalent_to(fa_intersection.intersect(first, second))
+    assert exp.is_equivalent_to(intersect(first, second))

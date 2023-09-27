@@ -1,15 +1,15 @@
 import networkx as nx
-import project.automata_lib as al
-import project.fa_intersection as il
+from project.automata_lib import min_dfa_from_regex, nfa_from_graph
+from project.fa_intersection import intersect
 
 
 def rpq_tensor(
     graph: nx.MultiDiGraph, regex: str, starts: list[int] = None, finals: list[int] = None
 ) -> set[(int, int)]:
-    regex_dfa = al.min_dfa_from_regex(regex)
-    graph_nfa = al.nfa_from_graph(graph, starts, finals)
+    regex_dfa = min_dfa_from_regex(regex)
+    graph_nfa = nfa_from_graph(graph, starts, finals)
 
-    ifa = il.intersect(graph_nfa, regex_dfa)
+    ifa = intersect(graph_nfa, regex_dfa)
     ifa_graph = ifa.to_networkx()
 
     transitive_closure = nx.transitive_closure(ifa_graph, reflexive=True)
