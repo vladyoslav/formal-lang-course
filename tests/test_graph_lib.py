@@ -20,8 +20,8 @@ def test_get_graph_info():
 
 
 def test_make_labeled_two_cycles_graph():
-    path = "./tests/graphs/task-1/actual.dot"
-    expected = "./tests/graphs/task-1/expected.dot"
+    path = "./tests/graphs/task_1/actual.dot"
+    expected = "./tests/graphs/task_1/expected.dot"
 
     gl.make_labeled_two_cycles_graph(3, 5, ("a", "b"), path)
 
